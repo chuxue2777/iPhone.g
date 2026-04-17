@@ -1,0 +1,167 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background-color: rgb(129,127,254);
+}
+.auto{
+	width: 1000px;
+	margin: 0 auto;
+}
+.all{
+	background-color: #eee;
+}
+.header{
+	height: 500px;
+	background: url(../images/header.jpeg) no-repeat;
+	background-size: 100% 100%;
+}
+.banner{
+	height: 40px;
+	background-color: rgb(22,91,132);
+	border-top: 3px solid #fff;
+}
+.banner li{
+	width: 250px;
+	height: 40px;
+	line-height: 40px;
+	color: coral;
+	cursor: pointer;
+	text-align: center;
+	float: left;
+}
+.banner li:hover{
+	background-color: rgba(254,254,254,0.349);
+}
+.con{
+	height: 500px;
+	background-color: #fff;
+}
+.con1{
+	height: 480px;
+	width: 960px;
+	margin-left: 20px;
+	background-color: skyblue;
+}
+.con1-left{
+	width: 480px;
+	height: 480px;
+	float: left;
+}
+.con1-left h2{
+	margin: 70px 0 0 0;
+}
+.con1-right{
+	width: 480px;
+	height: 480px;
+	float: right;
+}
+.con1-right img{
+	width: 420px;
+	height: 420px;
+	margin: 30px 0 0 30px;
+}
+.h2-list{
+	height: 40px;
+	text-align: center;
+	color: darkblue;
+}
+.con2{
+	height: 500px;
+}
+.con2-left{
+	width: 380px;
+	height: 380px;
+	overflow: hidden;
+	border-radius: 190px;
+	float: left;
+	cursor: pointer;
+	margin-left: 100px;
+}
+.con2-left img{
+	width: 380px;
+	height: 380px;
+	transition: all 0.5s ease;
+}
+.con2-right{
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin: 100px 0 0 100px;
+	border-bottom: 3px solid deepskyblue;
+}
+.con3{
+	height: 500px;
+}
+.con3-left{
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin: 100px 0 0 100px;
+	border-bottom: 3px solid deepskyblue;
+}
+.con3-right{
+	width: 380px;
+	height: 380px;
+	overflow: hidden;
+	border-radius: 190px;
+	float: left;
+	margin-left: 100px;
+	cursor: pointer;
+}
+.con3-right img{
+	width: 380px;
+	height: 380px;
+	transition: all 0.5s ease;
+}
+.con4{
+	height: 500px;
+}
+.con4-left{
+	width: 380px;
+	height: 380px;
+	overflow: hidden;
+	border-radius: 190px;
+	float: left;
+	margin-left: 100px;
+	cursor: pointer;
+}
+.con4-left img{
+	width: 380px;
+	height: 380px;
+	transition: all 0.5s ease;
+}
+.con4-left img:hover{
+	transform: scale(1.1);
+}
+.con2-left img:hover{
+	transform: scale(1.1);
+}
+.con3-right img:hover{
+	transform: scale(1.1);
+}
+.con4-right{
+	width: 300px;
+	height: 300px;
+	float: left;
+	margin: 100px 0 0 100px;
+	border-bottom: 3px solid deepskyblue;
+}
+.floor{
+	height: 80px;
+	background-color: #fff;
+	text-align: center;
+	overflow: hidden;
+}
+hr{
+	height: 3px;
+	color: #ccc;
+	margin: 20px 0;
+}
